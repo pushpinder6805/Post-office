@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Office MIS Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom CSS */
+        #postOfficeCalculator {
+            text-align: center;
+            margin: auto;
+            width: 50%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        #result {
+            text-align: center;
+            margin-top: 20px;
+        }
+        button {
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-center mt-4">Post Office Monthly Income Scheme Calculator</h1>
+    <form id="postOfficeCalculator">
+        <div class="form-group row mt-4">
+            <label for="principalAmount" class="col-sm-4 col-form-label">Principal Amount (in Rs.):</label>
+            <div class="col-sm-8">
+                <input type="number" id="principalAmount" name="principalAmount" class="form-control" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="tenure" class="col-sm-4 col-form-label">Tenure (in months):</label>
+            <div class="col-sm-8">
+                <input type="number" id="tenure" name="tenure" class="form-control" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="interestRate" class="col-sm-4 col-form-label">Interest Rate (in %):</label>
+            <div class="col-sm-8">
+                <input type="number" id="interestRate" name="interestRate" class="form-control" required>
+            </div>
+        </div>
+        <div class="form-group text-center mt-4">
+            <button type="button" class="btn btn-primary px-5" onclick="calculateMonthlyInterest()">Calculate Monthly Interest</button>
+        </div>
+    </form>
+    
+    <div id="result"></div>
+
+    <script>
+        function calculateMonthlyInterest() {
+            // Retrieve input values
+            var principalAmount = document.getElementById("principalAmount").value;
+            var tenure = document.getElementById("tenure").value;
+            var interestRate = document.getElementById("interestRate").value;
+
+            // Calculate monthly interest
+            var monthlyInterest = (principalAmount * interestRate / 100) / 12;
+            
+            // Display the result
+            document.getElementById("result").innerHTML = "<p>Monthly Interest: Rs. " + monthlyInterest.toFixed(2) + "</p>";
+        }
+    </script>
+</body>
+</html>
